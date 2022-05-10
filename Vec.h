@@ -176,3 +176,25 @@ float cf3Deg(const Coordf vtx, const Coordf pos1, const Coordf pos2)
 {
 	return abs(degReduce(cfCfToDeg(vtx, pos1) - cfCfToDeg(vtx, pos2)));
 }
+
+// takes a vector and rotates it n rads
+static inline
+Coordf cfRotateRad(const Coordf vec, const float n)
+{
+    return (const Coordf){
+        .x = cosf(n*vec.x) - sinf(n*vec.y),
+        .y = sinf(n*vec.x) + cosf(n*vec.y)
+    };
+}
+
+
+// takes a vector and rotates it d deg
+static inline
+Coordf cfRotateDeg(const Coordf vec, const float d)
+{
+    const float n = degToRad(d);
+    return (const Coordf){
+        .x = cosf(n*vec.x) - sinf(n*vec.y),
+        .y = sinf(n*vec.x) + cosf(n*vec.y)
+    };
+}

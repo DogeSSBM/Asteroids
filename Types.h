@@ -121,7 +121,11 @@ typedef union{
 		float x;
 		float y;
 	};
-}Coordf, Vectorf, Rangef, Lengthf, Offsetf;
+    struct{
+        float mag;
+        float ang;
+    };
+}Coordf, Vectorf, Rangef, Lengthf, Offsetf, Vec;
 
 typedef enum{
 	DIR_U = 0b00,

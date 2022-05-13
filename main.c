@@ -1,22 +1,6 @@
 #include "Includes.h"
 
-typedef struct{
-    Vec pos;
-    Vec momentum;
-}Player;
 
-Player movePlayer(Player player)
-{
-    const float magMod = .01*keyState(SDL_SCANCODE_W) - .01*keyState(SDL_SCANCODE_S);
-    const float angMod = 2*keyState(SDL_SCANCODE_D) - 2*keyState(SDL_SCANCODE_A);
-    player.momentum = degMagToCf(
-        cfToDeg(player.momentum) + angMod,
-        fclamp(cfMag(player.momentum)+magMod, 0.1f, 3.0f)
-    );
-
-    player.pos = translateWrap(player.pos, player.momentum);
-    return player;
-}
 
 void drawPlayer(const Player player)
 {
@@ -42,8 +26,11 @@ int main(int argc, char const *argv[])
     while(1){
         Ticks t = frameStart();
 
-        if(keyPressed(SDL_SCANCODE_SPACE))
+        if(keyPressed(SDL_SCANCODE_SPACE)){
             ast = newAst(6 + rand() % 8, closestSide(player.pos));
+            ast.pos = CCf(getWindowMid());
+            ast.momentum = degToCf(45.0f);
+        }
 
         player = movePlayer(player);
         ast = moveAst(ast);

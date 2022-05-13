@@ -35,4 +35,7 @@
 #include "Poly.h"
 #include "Examples.h"
 
+#include "Decls.h"
 #include "Asteroids.h"
+#include "Player.h"
+#include "Entity.h"

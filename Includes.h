@@ -34,3 +34,5 @@
 #include "DogeUtil.h"
 #include "Poly.h"
 #include "Examples.h"
+
+#include "Asteroids.h"

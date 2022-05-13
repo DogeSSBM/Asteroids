@@ -168,3 +168,8 @@ Coordf cfRotateDeg(const Coordf vec, const float d)
 {
     return cfRotateRad(vec, degToRad(d));
 }
+
+Vec dirToVec(const Direction dir)
+{
+    return degToCf(90.0*dir);
+}

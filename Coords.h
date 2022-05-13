@@ -260,3 +260,11 @@ Rect rectOffset(const Rect rect, const Offset off)
 	const Coord pos = coordOffset((Coord){rect.x, rect.y}, off);
 	return (Rect){.x=pos.x, .y=pos.y, .w=rect.w, .h=rect.h};
 }
+
+Direction closestDir(const Coord coord1, const Coord coord2)
+{
+    const Coord dif = coordSub(coord1, coord2);
+    if(abs(dif.x) > abs(dif.y))
+        return dif.x < 0 ? DIR_R : DIR_L;
+    return dif.y < 0 ? DIR_D : DIR_U;
+}

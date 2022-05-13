@@ -33,9 +33,6 @@ typedef int64_t			i64;
 #define U32MAX			UINT32_MAX
 #define U64MAX			UINT64_MAX
 
-// #define ABS(n)			((n)<0? -(n):(n))
-// #define ZFLOOR(n)			((n)<0?    0:(n))
-
 typedef SDL_Event			Event;
 typedef SDL_Rect 			Rect;
 typedef SDL_Color 		Color;
@@ -194,4 +191,9 @@ float lboundf(const float n, const float l)
 float uboundf(const float n, const float u)
 {
     return n>u?u:n;
+}
+
+int abs(const int n)
+{
+    return n < 0 ? -n : n;
 }
